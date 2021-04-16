@@ -635,4 +635,12 @@ function gananciasFe($fecha){
     $query=$con->query("SELECT SUM(costo) as total,  SUM(boletos) as cantidad FROM compras WHERE fecha = '$fecha'");
     return recorrer($query);
 }
+
+function gananciasTab($fecha){
+    global $con;
+    $query=$con->query("SELECT SUM(compras.costo) AS costo, SUM(compras.boletos) AS boletos, destino.nombre FROM compras INNER JOIN destino ON destino.id_destino = compras.id_destino 
+    WHERE fecha = '$fecha'
+    GROUP BY compras.id_destino HAVING COUNT(*) >= 1");
+    return recorrer($query);
+}
 ?>
