@@ -11,63 +11,76 @@ if (isset($_POST["fecha"])) {
   /* echo '<script>
 alert("si hay fecha ' . $_POST["fecha"] . '");
 </script>'; */
-  if ($_POST["fecha"] == " ") {
+  if ($_POST["fecha"] == "") {
     $fecha = null;
+    $GananciasTab=gananciasTabSin();
   } else {
     $fecha = $_POST["fecha"];
+    $GananciasTab = gananciasTab($fecha);
   }
 } else {
   /* echo '<script>
 alert("no hay fecha");
 </script>'; */
   $fecha = null;
+  $GananciasTab=gananciasTabSin();
 }
-?>
 
-<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-  <h2 class="text-center">Vista general</h2>
-  <?php
-  $Ganancias = gananciasFe($fecha);
-  $GananciasTab = gananciasTab($fecha);
+$Ganancias = gananciasFe($fecha);
 
   ?>
+  <div style="margin-top: 2rem; margin-bottom: 2rem;">
+
+<h2> Ganancias totales <?php if ($Ganancias[0]['total'] != null) {
+                          echo $Ganancias[0]['total'];
+                        } else {
+                          echo "0";
+                        } ?> cantidad de voletos vendidos <?php if ($Ganancias[0]['cantidad'] != null) {
+                                              echo $Ganancias[0]['cantidad'];
+                                            } else {
+                                              echo "0";
+                                            } ?> </h2>
+<!-- <h2> ganancias totales <?php echo $Ganancias[0]['total'] ?> </h2> -->
+</div>
+<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+  <h2 class="text-center">Vista general</h2>
+  
   <table class="table table-striped rounded-lg" id="tabla">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Correo</th>
         <th scope="col">Destino</th>
+        <th scope="col">Boletos</th>
         <th scope="col">Ganancias</th>
+        <th scope="col">fecha de salida</th>
+        <th scope="col">hora_salida</th>
       </tr>
     </thead>
     <tbody>
       <?php
+      
+      
       $a = 1;
       foreach ($GananciasTab as $list) {
         echo "
             <tr>
               <th scope='row'>" . $a . "</th>
+              <td>" . $list['email'] . "</td>
               <td>" . $list['nombre'] . "</td>
-              <td>" . $list['costo'] . "</td>
               <td>" . $list['boletos'] . "</td>
+              <td>" . $list['costo'] . "</td>
+              <td>" . $list['fecha_salida'] . "</td>
+              <td>" . $list['hora_salida'] . "</td>
+              
             </tr>        
             ";
-            $a++;
+        $a++;
       }
-      
+
       ?>
     </tbody>
   </table>
 </div>
-<div>
-  <h2> Ganancias totales <?php if ($Ganancias[0]['total'] != null) {
-                            echo $Ganancias[0]['total'];
-                          } else {
-                            echo "0";
-                          } ?> cantidad de voletos vendidos <?php if ($Ganancias[0]['cantidad'] != null) {
-                                                              echo $Ganancias[0]['cantidad'];
-                                                            } else {
-                                                              echo "0";
-                                                            } ?> </h2>
-  <!-- <h2> ganancias totales <?php echo $Ganancias[0]['total'] ?> </h2> -->
-</div>
+

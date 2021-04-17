@@ -638,9 +638,18 @@ function gananciasFe($fecha){
 
 function gananciasTab($fecha){
     global $con;
-    $query=$con->query("SELECT SUM(compras.costo) AS costo, SUM(compras.boletos) AS boletos, destino.nombre FROM compras INNER JOIN destino ON destino.id_destino = compras.id_destino 
-    WHERE fecha = '$fecha'
-    GROUP BY compras.id_destino HAVING COUNT(*) >= 1");
+    $query=$con->query("SELECT compras.id, compras.boletos, compras.costo, compras.TpPago, compras.fecha, compras.Estado_pago, 
+    usuario.username, usuario.email, destino.nombre, rutas.fecha as fecha_salida, rutas.hora as hora_salida 
+    FROM compras INNER JOIN usuario ON usuario.id_user = compras.id_usuario INNER JOIN destino 
+    ON destino.id_destino = compras.id_destino INNER JOIN rutas ON rutas.ID = compras.ruta_id WHERE compras.fecha = '$fecha'");
+    return recorrer($query);
+}
+function gananciasTabSin(){
+    global $con;
+    $query=$con->query("SELECT compras.id, compras.boletos, compras.costo, compras.TpPago, compras.fecha, compras.Estado_pago, 
+    usuario.username, usuario.email, destino.nombre, rutas.fecha as fecha_salida, rutas.hora as hora_salida 
+    FROM compras INNER JOIN usuario ON usuario.id_user = compras.id_usuario INNER JOIN destino 
+    ON destino.id_destino = compras.id_destino INNER JOIN rutas ON rutas.ID = compras.ruta_id");
     return recorrer($query);
 }
 ?>
