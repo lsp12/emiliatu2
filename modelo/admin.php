@@ -51,18 +51,19 @@
         rutas
     INNER JOIN empleado ON empleado.cedula = rutas.id_emple
     INNER JOIN buses ON buses.matricula = rutas.id_buses
-    INNER JOIN destino ON destino.id_destino = rutas.id_destino;");
+    INNER JOIN destino ON destino.id_destino = rutas.id_destino
+    ORDER BY `rutas`.`ID` DESC");
         return recorrer($query);
     }
     function mostrarUsuario(){
         global $con;
-        $query = $con->query("SELECT * FROM usuario");
+        $query = $con->query("SELECT * FROM usuario ORDER BY usuario.id_user DESC");
         return recorrer($query);
     }
     
     function Buscar($email){
         global $con;
-        $query=$con->query("SELECT * FROM usuario WHERE email='$email'");
+        $query=$con->query("SELECT * FROM usuario WHERE email='$email' ORDER BY `usuario`.`id_user` DESC");
         return recorrer($query);
     }
     function mostrarDestino(){
@@ -162,7 +163,7 @@
         rutas.hora
     FROM
         `rutas`
-    INNER JOIN destino ON destino.id_destino = rutas.id_destino	 ORDER BY rutas.id_destino ASC");
+    INNER JOIN destino ON destino.id_destino = rutas.id_destino	 ORDER BY rutas.id_destino DESC");
 
         return recorrer($query);
     }
@@ -178,7 +179,8 @@
     FROM
         boleto
     INNER JOIN usuario ON usuario.id_user = boleto.id_usuario
-    INNER JOIN destino ON destino.id_destino = boleto.id_destino");
+    INNER JOIN destino ON destino.id_destino = boleto.id_destino
+    ORDER BY `boleto`.`id_usuario` DESC");
 
     return recorrer($query);
     }
@@ -615,7 +617,7 @@ function enviar_a($ruta){
 
 function notificaciones(){
     global $con;
-    $query=$con->query("SELECT * FROM `correos` WHERE estado_vista = 'no leido' ORDER BY `correos`.`id` ASC");
+    $query=$con->query("SELECT * FROM `correos` WHERE estado_vista = 'no leido' ORDER BY `correos`.`id` desc");
     return recorrer($query);
 }
 function marcarLe(){

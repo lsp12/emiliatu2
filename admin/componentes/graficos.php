@@ -14,12 +14,13 @@
                         <tbody>
                     <?php
                         $horario=Horarios();
+                        $a=1;
                             
                         foreach ($horario as $fila) {
                             
                           echo "
                           <tr class='text-center'>
-                            <th scope='row'>".$fila['ID']."</th>
+                            <th scope='row'>".$a++."</th>
                             <td>".$fila['nombre']."</td>
                             </td>
                             <td>
@@ -61,7 +62,7 @@
                         foreach ($rutas as $fila) {
                           echo "
                           <tr>
-                            <th scope='row'>".$fila['ID']."</th>
+                            <th scope='row'>".$a++."</th>
                             <td>".$fila['nombre']."</td>
                             <td>".$fila['nombre_emp']."</td>
                             <td>".$fila['matricula']."</td>

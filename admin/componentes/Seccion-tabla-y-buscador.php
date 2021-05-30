@@ -12,13 +12,15 @@
                         <tbody>
                     <?php
                     $usuario=mostrarUsuario();
+                    $a=1;
                       if(isset($_POST['buscar'])){
                         if($_POST['email']==null){
+                          
                           foreach ($usuario as $fila) {
                             
                             echo "
                             <tr>
-                              <th scope='row'>".$fila['id_user']."</th>
+                              <th scope='row'>".$a++."</th>
                               <td>".$fila['username']."</td>
                               <td>".$fila['email'] ."</td>
                             </tr>        
@@ -30,7 +32,7 @@
                           foreach($buscar as $li){
                             echo "
                                   <tr>
-                                    <th scope='row'>".$li['id_user']."</th>
+                                  <th scope='row'>".$a++."</th>
                                     <td>".$li['username']."</td>
                                     <td>".$li['email'] ."</td>
                                   </tr>        
@@ -41,7 +43,7 @@
                         foreach ($usuario as $fila) {
                             echo "
                             <tr>
-                              <th scope='row'>".$fila['id_user']."</th>
+                            <th scope='row'>".$a++."</th>
                               <td>".$fila['username']."</td>
                               <td>".$fila['email'] ."</td>
                             </tr>        
