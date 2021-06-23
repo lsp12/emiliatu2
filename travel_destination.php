@@ -53,6 +53,7 @@
                     $lista=Compras($id);
                 
                     foreach ($lista as $li) {
+                      if($li["Estado_pago"]!="Aprobado"){
                         echo '<tr>
                         <td>
                           <div class="media">
@@ -91,8 +92,42 @@
                             </div>
                           <td>
                         </tr>';
+                      }else{
+                        echo '<tr>
+                        <td>
+                          <div class="media">
+                            <div class="d-flex thumb">
+                              <img src="assets/img/destination/'.$li["imagen"].'" style="height: 10rem;" alt="" />
+                            </div>
+                            
+                          </div>
+                        </td>
+                        <td>
+                        
+                          <h5>'.$li["nombre"].'</h5>
+                        </td>
+                        <td>
+                          <div class="product_count">
+                          
+                          '.$li["boletos"].'
+                        
+                          
+                          </div>
+                        </td>
+                        
+                        <td>
+                        
+                          <h5 name="precio" id="demo">'.$li["costo"].'</h5>
+                        
+                        </td>
+                        <td>
+                          '.$li["Estado_pago"].'
+                        </td>
+                          
+                        </tr>';
                       }
                       
+                      }
                     
                     
                     $id=$_SESSION['user_id'];
