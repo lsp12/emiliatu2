@@ -144,7 +144,7 @@ WHERE
     $mail->Username = 'emiliatur.sa@gmail.com';
 
     //Password to use for SMTP authentication
-    $mail->Password = 'Emiliatur852';
+    $mail->Password = 'Emiliatur8521';
 
     //Set who the message is to be sent from
     $mail->setFrom('emiliatur.sa@gmail.com', 'emiliatur sa');
