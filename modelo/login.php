@@ -21,7 +21,7 @@ $con = connectDatabase();
     function añadirUsuario($datos_registro){
         global $con;
         $clave=password_hash($datos_registro[2], PASSWORD_DEFAULT);
-        $con->query("INSERT INTO usuario (username, email, clave) VALUES ('$datos_registro[0]', '$datos_registro[1]', '$clave')");
+        $con->query("INSERT INTO usuario (username, email, clave, numeroCED, numeroTEl) VALUES ('$datos_registro[0]', '$datos_registro[1]', '$clave', '$datos_registro[4]', '$datos_registro[5]')");
         header("location: index.php");
     }
     function confirmar($correo){	

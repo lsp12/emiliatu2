@@ -52,13 +52,13 @@ ob_start();
                 <div class="col-3">
                   <div class="nav flex-column nav-pills bg-dark rounded-lg" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab"  href="admin-1.php" role="tab" aria-controls="v-pills-home" >Regresar a pagina principal</a>
-                    <a class="nav-link " id="v-pills-home-tab"  href="reportUser.php" role="tab" aria-controls="v-pills-home2" >Reporte de Empleados</a>
+                    <a class="nav-link" id="v-pills-home-tab"  href="ganacias.php" role="tab" aria-controls="v-pills-home2" >Reporte de Ganacias</a>
                   </div>
                 </div>
                 <div class="col-9">
                   <div class="tab-content" id="v-pills-tabContent">
                     <?php
-                        include_once("componentes/gananciasgrsp.php");
+                        include_once("componentes/reportUsers1.php");
                         
                     ?>              
         </div>

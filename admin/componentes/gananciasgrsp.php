@@ -46,16 +46,19 @@ $Ganancias = gananciasFe($fecha);
 
   <h2 class="text-center">Vista general</h2>
   
-  <table class="table table-striped rounded-lg" id="tabla">
+  <table class="table table-striped" id="tabla">
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Telefono</th>
         <th scope="col">Correo</th>
         <th scope="col">Destino</th>
-        <th scope="col">Boletos</th>
-        <th scope="col">Ganancias</th>
+        <th scope="col">Bol</th>
+        <th scope="col">din</th>
         <th scope="col">fecha de salida</th>
-        <th scope="col">hora_salida</th>
+        <th scope="col">hora salida</th>
       </tr>
     </thead>
     <tbody>
@@ -64,9 +67,18 @@ $Ganancias = gananciasFe($fecha);
       
       $a = 1;
       foreach ($GananciasTab as $list) {
+        if($list['numeroTEl']=='' || $list['numeroTEl']==null){
+          $list['numeroTEl']="N/A";
+        }
+        if($list['numeroCED']=='' || $list['numeroCED']==null){
+          $list['numeroCED']="N/A";
+        }
         echo "
             <tr>
               <th scope='row'>" . $a . "</th>
+              <td>" . $list['numeroCED'] . "</td>
+              <td>" . $list['username'] . "</td>
+              <td>" . $list['numeroTEl'] . "</td>
               <td>" . $list['email'] . "</td>
               <td>" . $list['nombre'] . "</td>
               <td>" . $list['boletos'] . "</td>

@@ -106,10 +106,7 @@ WHERE
     rutas.ID = $id_ruta");
     $ruta = recorrer($query);
     enviarNo($usuario[0]['username'], $ruta[0]['nombre']);
-    //Create a new PHPMailer instance
     $mail = new PHPMailer();
-
-    //Tell PHPMailer to use SMTP
     $mail->isSMTP();
 
     $mail->SMTPOptions = array(
@@ -119,51 +116,20 @@ WHERE
             'allow_self_signed' => true
         )
     );
-    //Enable SMTP debugging
-    // SMTP::DEBUG_OFF = off (for production use)
-    // SMTP::DEBUG_CLIENT = client messages
-    // SMTP::DEBUG_SERVER = client and server messages
+    
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
-    //Set the hostname of the mail server
     $mail->Host = 'smtp.gmail.com';
-    // use
-    // $mail->Host = gethostbyname('smtp.gmail.com');
-    // if your network does not support SMTP over IPv6
-
-    //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
     $mail->Port = 587;
-
-    //Set the encryption mechanism to use - STARTTLS or SMTPS
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-
-    //Whether to use SMTP authentication
     $mail->SMTPAuth = true;
-
-    //Username to use for SMTP authentication - use full email address for gmail
     $mail->Username = 'emiliatur.sa@gmail.com';
-
-    //Password to use for SMTP authentication
     $mail->Password = 'Emiliatur8521';
-
-    //Set who the message is to be sent from
     $mail->setFrom('emiliatur.sa@gmail.com', 'emiliatur sa');
-
-    //Set an alternative reply-to address
     $mail->addReplyTo('emiliatur.sa@gmail.com');
-
-    //Set who the message is to be sent to
     $mail->addAddress($usuario[0]['email']);
     /* $mail->addAddress('tamaquiza.aldahir@gmail.com'); */
 
-    //Set the subject line
     $mail->Subject = 'Emiliatur-SA';
-
-    //Read an HTML message body from an external file, convert referenced images to embedded,
-    //convert HTML into a basic plain-text alternative body
-    /* $mail->msgHTML(file_get_contents('contents.html'), __DIR__); */
-
-    //Replace the plain text body with one created manually
     $mail->AltBody = '<b>Emiliatur-SA</b>';
     $mail->Body    = '
     <!DOCTYPE html>
@@ -174,28 +140,24 @@ WHERE
     <title>Document</title>
 </head>
 <body>
-    Hola usuario ' . $usuario[0]['username'] . '</br>
+    Hola usuario ' . $usuario[0]['username'] . 'con el numero de cedula '.$usuario[0]['numeroCED'].', correo '.$usuario[0]['email'].' 
+    y numero celular '.$usuario[0]['numeroTEl'].' </br>
     Usted a comprado ' . $pago . ' voletos,</br>
     Por un total de: ' . $pasajeros . ', su tipo de Pago es: ' . $tipo . '  
     Destino: ' . $ruta[0]['nombre'] . '
     Fecha de salida ' . $ruta[0]['fecha'] . ', hora de salida ' . $ruta[0]['hora'] . '
     Estado de verificacion de pago: <b>Pendiente</b>
-    Su conductor es ' . $ruta[0]['nombre_emp'] . ' ' . $ruta[0]['apellido'] . '
+    Su conductor es ' . $ruta[0]['nombre_emp'] . ' ' . $ruta[0]['apellido'] . ' y con la cedula '.$ruta[0]['cedula'].'
     <p>Descripcion :</p>
     <p>' . $ruta[0]['descripcion'] . '</p>
     </body>
 </html>
     ';
-    //Attach an image file
-    /* $mail->addAttachment('images/phpmailer_mini.png'); */
-
-    //send the message, check for errors
     if (!$mail->send()) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         echo 'Message sent!';
     }
-
     enviar_a($usuario, $ruta, $tipo);
 }
 

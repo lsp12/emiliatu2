@@ -649,9 +649,28 @@ function gananciasTab($fecha){
 function gananciasTabSin(){
     global $con;
     $query=$con->query("SELECT compras.id, compras.boletos, compras.costo, compras.TpPago, compras.fecha, compras.Estado_pago, 
-    usuario.username, usuario.email, destino.nombre, rutas.fecha as fecha_salida, rutas.hora as hora_salida 
+    usuario.username, usuario.email,usuario.numeroCED, usuario.numeroTEl , destino.nombre, rutas.fecha as fecha_salida, rutas.hora as hora_salida 
     FROM compras INNER JOIN usuario ON usuario.id_user = compras.id_usuario INNER JOIN destino 
     ON destino.id_destino = compras.id_destino INNER JOIN rutas ON rutas.ID = compras.ruta_id");
+    return recorrer($query);
+}
+
+function HistorialEmple($id){
+    global $con;
+    $query=$con->query("SELECT
+    compras.id,
+    empleado.nombre_emp,
+    empleado.cedula,
+    destino.nombre,
+    rutas.fecha AS fecha_salida,
+    rutas.hora AS hora_salida
+FROM
+    compras
+INNER JOIN usuario ON usuario.id_user = compras.id_usuario
+INNER JOIN destino ON destino.id_destino = compras.id_destino
+INNER JOIN rutas ON rutas.ID = compras.ruta_id
+INNER JOIN empleado on empleado.cedula = rutas.id_emple
+WHERE rutas.id_emple =$id");
     return recorrer($query);
 }
 ?>

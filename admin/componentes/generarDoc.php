@@ -5,36 +5,36 @@
         <div class="form-group row mb-4">
         <div class="col-4">
           <label for="exampleFormControlSelect2">Cedula:</label>
-          <input type="number" placeholder='Numero de identificacion' class="form-control" name="cedula" id="">
+          <input type="text" placeholder='Numero de identificacion' class="form-control" name="cedula" id="intTextBox" required>
           </div>
 
           <div class="col-4">
           <label for="exampleFormControlSelect2">Nombre:</label>
-          <input type="text" placeholder='Ingresa los nombres' class="form-control" name="nombre_emp" id="">
+          <input type="text" placeholder='Ingresa los nombres' class="form-control" name="nombre_emp" id="" required>
           </div>
         
         
           <div class="col-4">
           <label for="exampleFormControlSelect2">Apellido:</label>
-          <input type="text" placeholder='Ingresa los apelldios' class="form-control" name="apellido" id="">
+          <input type="text" placeholder='Ingresa los apelldios' class="form-control" name="apellido" id="" required>
           </div>
           </div>
 
           <div class="form-group row">
           <div class="col-4">
             <label for="exampleFormControlSelect2">edad:</label>
-            <input type="number" placeholder='Ingrese edad' class="form-control" name="edad" id="">
+            <input type="number" placeholder='Ingrese edad' class="form-control" name="edad" id="" required>
           </div>
           <div class="col-4">
             <label for="exampleFormControlSelect2">sexo:</label>
-            <select name="sexo" id="" class="form-control">
+            <select name="sexo" id="" class="form-control" required>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
           </div>
           <div class="col-4">
-            <label for="exampleFormControlSelect2">Numero de celular:</label>
-            <input type="text" placeholder='Numero de telefono' class="form-control" name="numeroCel" id="">
+            <label for="exampleFormControlSelect2" >Numero de celular:</label>
+            <input type="text" placeholder='Numero de telefono' class="form-control" name="numeroCel" id="intTextBox2" required>
           </div>
           
         </div>
@@ -92,6 +92,30 @@
   </div>
 </div>
                       
-                
+<script>
+		function setInputFilter(textbox, inputFilter) {
+			["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+				textbox.addEventListener(event, function() {
+					if (inputFilter(this.value)) {
+						this.oldValue = this.value;
+						this.oldSelectionStart = this.selectionStart;
+						this.oldSelectionEnd = this.selectionEnd;
+					} else if (this.hasOwnProperty("oldValue")) {
+						this.value = this.oldValue;
+						this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+					} else {
+						this.value = "";
+					}
+				});
+			});
+		}
+
+		setInputFilter(document.getElementById("intTextBox"), function(value) {
+			return /^-?\d*$/.test(value);
+		});
+		setInputFilter(document.getElementById("intTextBox2"), function(value) {
+			return /^-?\d*$/.test(value);
+		});
+	</script>
                 
                     
