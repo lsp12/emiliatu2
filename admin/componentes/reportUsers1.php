@@ -1,11 +1,3 @@
-<div>
-  <form action="ganacias.php" method="post">
-    <h1>Selecione la fecha </h1>
-    <input class="input-group-text" type="date" name="fecha">
-    <input type="submit" class="btn btn-primary mt-3" value="enviar">
-  </form>
-</div>
-
   
 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 

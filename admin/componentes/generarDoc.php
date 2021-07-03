@@ -5,7 +5,7 @@
         <div class="form-group row mb-4">
         <div class="col-4">
           <label for="exampleFormControlSelect2">Cedula:</label>
-          <input type="text" placeholder='Numero de identificacion' class="form-control" name="cedula" id="intTextBox" required>
+          <input type="text" placeholder='Numero de identificacion' id="intTextBox" class="form-control" name="cedula" id="intTextBox" maxlength="10" minlength="10" required>
           </div>
 
           <div class="col-4">
@@ -23,7 +23,7 @@
           <div class="form-group row">
           <div class="col-4">
             <label for="exampleFormControlSelect2">edad:</label>
-            <input type="number" placeholder='Ingrese edad' class="form-control" name="edad" id="" required>
+            <input type="number" placeholder='Ingrese edad' class="form-control" name="edad" min="18" id="" required>
           </div>
           <div class="col-4">
             <label for="exampleFormControlSelect2">sexo:</label>
@@ -34,7 +34,7 @@
           </div>
           <div class="col-4">
             <label for="exampleFormControlSelect2" >Numero de celular:</label>
-            <input type="text" placeholder='Numero de telefono' class="form-control" name="numeroCel" id="intTextBox2" required>
+            <input type="text" placeholder='Numero de telefono' class="form-control" name="numeroCel" maxlength="10" minlength="10" id="intTextBox2" required>
           </div>
           
         </div>
