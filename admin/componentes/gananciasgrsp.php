@@ -58,7 +58,8 @@ $Ganancias = gananciasFe($fecha);
         <th scope="col">Bol</th>
         <th scope="col">din</th>
         <th scope="col">fecha de salida</th>
-        <th scope="col">hora salida</th>
+        <th scope="col">Hora salida</th>
+        <th scope="col">Tipo de Pago</th>
       </tr>
     </thead>
     <tbody>
@@ -73,6 +74,9 @@ $Ganancias = gananciasFe($fecha);
         if($list['numeroCED']=='' || $list['numeroCED']==null){
           $list['numeroCED']="N/A";
         }
+        if($list['TpPago']=='' || $list['TpPago']==null){
+          $list['TpPago']="N/A";
+        }
         echo "
             <tr>
               <th scope='row'>" . $a . "</th>
@@ -85,6 +89,7 @@ $Ganancias = gananciasFe($fecha);
               <td>" . $list['costo'] . "</td>
               <td>" . $list['fecha_salida'] . "</td>
               <td>" . $list['hora_salida'] . "</td>
+              <td>" . $list['TpPago'] . "</td>
               
             </tr>        
             ";

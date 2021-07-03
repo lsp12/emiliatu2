@@ -648,7 +648,7 @@ function gananciasTab($fecha){
 }
 function gananciasTabSin(){
     global $con;
-    $query=$con->query("SELECT compras.id, compras.boletos, compras.costo, compras.TpPago, compras.fecha, compras.Estado_pago, 
+    $query=$con->query("SELECT compras.TpPago, compras.id, compras.boletos, compras.costo, compras.TpPago, compras.fecha, compras.Estado_pago, 
     usuario.username, usuario.email,usuario.numeroCED, usuario.numeroTEl , destino.nombre, rutas.fecha as fecha_salida, rutas.hora as hora_salida 
     FROM compras INNER JOIN usuario ON usuario.id_user = compras.id_usuario INNER JOIN destino 
     ON destino.id_destino = compras.id_destino INNER JOIN rutas ON rutas.ID = compras.ruta_id");
