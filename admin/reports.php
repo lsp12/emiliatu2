@@ -1,7 +1,12 @@
 <?php
 ob_start();
 require_once('../modelo/admin.php');
+if (isset($_GET['user'])) {
     $id = $_GET['user'];
+} elseif (isset($_GET['bus'])) {
+    $id = $_GET['bus'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,35 +47,64 @@ require_once('../modelo/admin.php');
             <h1 class="text-center">Reporte</h1>
             <table class="table table-striped rounded-lg" id="tabla">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Cedula</th>
-                        <th scope="col">Dia de viaje</th>
-                        <th scope="col">Destino</th>
-                        <th scope="col">Hora de salida</th>
-                    </tr>
+                    <?php
+                    if (isset($_GET['user'])) {
+                    ?>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Dia de viaje</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Hora de salida</th>
+                        </tr>
+                    <?php }elseif(isset($_GET['bus'])){ ?>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Matricula</th>
+                            <th scope="col">Dia de viaje</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Hora de salida</th>
+                        </tr>
+                    <?php  }?>
                 </thead>
                 <tbody>
                     <?php
-
-                    $employee=HistorialEmple($id);
-                    $a = 1;
-                    foreach ($employee as $list) {
-                        echo "
-            <tr>
-              <th scope='row'>" . $a . "</th>
-              <td>" . $list['nombre_emp'] . "</td>
-              <td>" . $list['cedula'] . "</td>
-              <td>" . $list['fecha_salida'] . "</td>
-              <td>" . $list['nombre'] . "</td>
-              <td>" . $list['hora_salida'] . "</td>
-              
-              
-            </tr>        
-            ";
-                        $a++;
+                    if (isset($_GET['user'])) {
+                        $employee = HistorialEmple($id);
+                        $a = 1;
+                        foreach ($employee as $list) {
+                            echo "
+                            <tr>
+                            <th scope='row'>" . $a . "</th>
+                            <td>" . $list['nombre_emp'] . "</td>
+                            <td>" . $list['cedula'] . "</td>
+                            <td>" . $list['fecha_salida'] . "</td>
+                            <td>" . $list['nombre'] . "</td>
+                            <td>" . $list['hora_salida'] . "</td>
+                            
+                            </tr>        
+                            ";
+                            $a++;
+                        }
+                    } elseif (isset($_GET['bus'])) {
+                        $employee = HistorialBuses($id);
+                        $a = 1;
+                        foreach ($employee as $list) {
+                            echo "
+                            <tr>
+                            <th scope='row'>" . $a . "</th>
+                            <td>" . $list['matricula'] . "</td>
+                            <td>" . $list['fecha_salida'] . "</td>
+                            <td>" . $list['nombre'] . "</td>
+                            <td>" . $list['hora_salida'] . "</td>
+                            
+                            </tr>        
+                            ";
+                            $a++;
+                        }
                     }
+
 
                     ?>
                 </tbody>

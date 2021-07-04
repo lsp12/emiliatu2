@@ -46,13 +46,14 @@ ob_start();
     <div class="container-fluid fondo mb-3 pb-4 rounded-lg">
     
         <div class="m-5">
-            <h1 class="text-center p-5">Administracion</h1>
+            <h1 class="text-center p-5">Empleados</h1>
             
             <div class="row justify-content-between">
                 <div class="col-3">
                   <div class="nav flex-column nav-pills bg-dark rounded-lg" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab"  href="admin-1.php" role="tab" aria-controls="v-pills-home" >Regresar a pagina principal</a>
                     <a class="nav-link" id="v-pills-home-tab"  href="ganacias.php" role="tab" aria-controls="v-pills-home2" >Reporte de Ganacias</a>
+                    <a class="nav-link " id="v-pills-home-tab"  href="reportBus.php" role="tab" aria-controls="v-pills-home2" >Reporte Buses</a>
                   </div>
                 </div>
                 <div class="col-9">

@@ -30,8 +30,27 @@
                       <option value="inactivo">inactivo</option>
                   </select>
                 </div>
+                <div class="col-4">
+                  <label for="exampleFormControlSelect2">Marca</label>
+                  <input type="text" placeholder='Cantidad de acientos' class="form-control" name="marca" id="">
+                </div>
+                <div class="col-4">
+                  <label for="exampleFormControlSelect2">Modelo</label>
+                  <input type="text" placeholder='Cantidad de acientos' class="form-control" name="modelo" id="">
+                </div>
+                <div class="col-3">
+                  <label for="exampleFormControlSelect2">Color</label>
+                  <select name="color" id="" class="form-control">
+                      <option value="Blanco">Blanco</option>
+                      <option value="Amarillo">Amarillo</option>
+                      <option value="Rojo">Rojo</option>
+                      <option value="Negro">Negro</option>
+                      <option value="Azul">Azul</option>
+                      <option value="Morado">Morado</option>
+                  </select>
+                
               </div>
-              <input type="submit" value="Guardar" class="btn btn-primary" name="guardar1">
+              <input type="submit" value="Guardar" class="btn btn-primary mt-2" name="guardar1">
             </form>
             <?php 
             if(isset($_POST['guardar1'])){
@@ -40,7 +59,10 @@
               $Altura=$_POST['Altura'];
               $capacidad=$_POST['capacidad'];
               $estado=$_POST['estado'];
-              InsertarBus($matricula,$Peso,$Altura,$capacidad,$estado);
+              $color=$_POST['color'];
+              $model=$_POST['modelo'];
+              $brand=$_POST['marca'];
+              InsertarBus($matricula,$Peso,$Altura,$capacidad,$estado,$color,$model,$brand);
             }
             ?>
   </div>

@@ -217,7 +217,7 @@
         return recorrer($query);
     }
 
-    function InsertarBus($matricula,$peso,$Altura,$capacidad,$estado){
+    function InsertarBus($matricula,$peso,$Altura,$capacidad,$estado,$color,$model,$brand){
         global $con;
         $query=$con->query("INSERT INTO `buses`(
             `matricula`,
@@ -225,7 +225,10 @@
             `altura`,
             `capacidad`,
             `estado`,
-            `numeroVehiculo`
+            `numeroVehiculo`,
+            `Marca`, 
+            `Modelo`, 
+            `Color`
         )
         VALUES(
             '$matricula',
@@ -233,7 +236,11 @@
             '$Altura',
             '$capacidad',
             '$estado',
-            NULL
+            NULL,
+            '$brand',
+            '$model',
+            '$color'
+
         )");
     }
 
@@ -671,6 +678,29 @@ INNER JOIN destino ON destino.id_destino = compras.id_destino
 INNER JOIN rutas ON rutas.ID = compras.ruta_id
 INNER JOIN empleado on empleado.cedula = rutas.id_emple
 WHERE rutas.id_emple =$id");
+    return recorrer($query);
+}
+function HistorialBuses($buses){
+    global $con;
+    $query=$con->query("SELECT
+    compras.id,
+    buses.matricula,
+    destino.nombre,
+    rutas.fecha AS fecha_salida,
+    rutas.hora AS hora_salida
+FROM
+    compras
+INNER JOIN usuario ON usuario.id_user = compras.id_usuario
+INNER JOIN destino ON destino.id_destino = compras.id_destino
+INNER JOIN rutas ON rutas.ID = compras.ruta_id
+INNER JOIN buses on buses.matricula = rutas.id_buses
+WHERE rutas.id_buses ='$buses'");
+    return recorrer($query);
+}
+
+function ConsultaBu($tabla){
+    global $con;
+    $query=$con->query("SELECT * FROM $tabla");
     return recorrer($query);
 }
 ?>
