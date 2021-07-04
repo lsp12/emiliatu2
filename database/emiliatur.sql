@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2021 a las 05:14:38
+-- Tiempo de generación: 04-07-2021 a las 02:48:31
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -118,24 +118,29 @@ CREATE TABLE `buses` (
   `altura` int(10) NOT NULL,
   `capacidad` int(10) NOT NULL,
   `estado` varchar(10) COLLATE utf32_spanish_ci NOT NULL,
-  `numeroVehiculo` int(10) NOT NULL
+  `numeroVehiculo` int(10) NOT NULL,
+  `Marca` varchar(30) COLLATE utf32_spanish_ci NOT NULL,
+  `Modelo` varchar(30) COLLATE utf32_spanish_ci NOT NULL,
+  `Color` varchar(30) COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `buses`
 --
 
-INSERT INTO `buses` (`matricula`, `peso`, `altura`, `capacidad`, `estado`, `numeroVehiculo`) VALUES
-('ESP-123', 45, 10, 40, 'activo', 1),
-('gol-123', 0, 25, 40, 'activo', 8),
-('gol-sls', 0, 25, 40, 'activo', 9),
-('hps-453', 30, 25, 40, 'inactivo', 2),
-('jps-546', 30, 40, 40, 'inactivo', 3),
-('kls-325', 25, 40, 40, 'activo', 5),
-('ksj-951', 50, 20, 40, 'activo', 7),
-('lsd-753', 30, 25, 40, 'activo', 6),
-('lsp-785', 30, 25, 40, 'activo', 4),
-('mol-451', 0, 12, 40, 'activo', 11);
+INSERT INTO `buses` (`matricula`, `peso`, `altura`, `capacidad`, `estado`, `numeroVehiculo`, `Marca`, `Modelo`, `Color`) VALUES
+('ALS-125', 140, 25, 0, 'activo', 12, '', '', 'Rojo'),
+('djon-350', 321, 233, 122, 'activo', 16, 'dawa', '2ds', 'Amarillo'),
+('ESP-123', 45, 10, 40, 'activo', 1, '', '', ''),
+('gol-123', 0, 25, 40, 'activo', 8, '', '', ''),
+('gol-sls', 0, 25, 40, 'activo', 9, '', '', ''),
+('hps-453', 30, 25, 40, 'inactivo', 2, '', '', ''),
+('jps-546', 30, 40, 40, 'inactivo', 3, '', '', ''),
+('kls-325', 25, 40, 40, 'activo', 5, '', '', ''),
+('ksj-951', 50, 20, 40, 'activo', 7, '', '', ''),
+('lsd-753', 30, 25, 40, 'activo', 6, '', '', ''),
+('lsp-785', 30, 25, 40, 'activo', 4, '', '', ''),
+('mol-451', 0, 12, 40, 'activo', 11, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -449,7 +454,7 @@ ALTER TABLE `boleto`
 -- AUTO_INCREMENT de la tabla `buses`
 --
 ALTER TABLE `buses`
-  MODIFY `numeroVehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `numeroVehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `carrito`
