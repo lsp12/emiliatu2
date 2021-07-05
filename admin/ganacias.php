@@ -59,7 +59,7 @@ ob_start();
                 <div class="col-10">
                   <div class="tab-content" id="v-pills-tabContent">
                     <?php
-                        include_once("componentes/graficos.php");
+                        include_once("componentes/gananciasgrsp.php");
                         
                     ?>              
         </div>
