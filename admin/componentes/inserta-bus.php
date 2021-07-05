@@ -5,42 +5,42 @@
               <div class="form-group row mb-4">
               <div class="col-6">
                 <label for="exampleFormControlSelect2">Matricula</label>
-                <input type="text" placeholder='Ingrese la matricula' class="form-control" name="matricula" id="">
+                <input type="text" placeholder='Ingrese la matricula' class="form-control" name="matricula">
               </div>
 
                 <div class="col-6">
                   <label for="exampleFormControlSelect2">Peso en kg</label>
-                  <input type="text" placeholder='Ingrese el peso' class="form-control" name="Peso" id="">
+                  <input type="text" placeholder='Ingrese el peso' class="form-control" name="Peso">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-5">
                   <label for="exampleFormControlSelect2">Altura</label>
-                  <input type="text" placeholder='Ingrese altura' class="form-control" name="Altura" id="">
+                  <input type="text" placeholder='Ingrese altura' class="form-control" name="Altura">
                 </div>
 
                 <div class="col-4">
                   <label for="exampleFormControlSelect2">Numero de Acientos</label>
-                  <input type="number" placeholder='Cantidad de acientos' class="form-control" name="capacidad" id="">
+                  <input type="number" placeholder='Cantidad de acientos' class="form-control" name="capacidad">
                 </div>
                 <div class="col-3">
                   <label for="exampleFormControlSelect2">Estado del vehiculo</label>
-                  <select name="estado" id="" class="form-control">
+                  <select name="estado" class="form-control">
                       <option value="activo">activo</option>
                       <option value="inactivo">inactivo</option>
                   </select>
                 </div>
                 <div class="col-4">
                   <label for="exampleFormControlSelect2">Marca</label>
-                  <input type="text" placeholder='Cantidad de acientos' class="form-control" name="marca" id="">
+                  <input type="text" placeholder='Cantidad de acientos' class="form-control" name="marca">
                 </div>
                 <div class="col-4">
                   <label for="exampleFormControlSelect2">Modelo</label>
-                  <input type="text" placeholder='Cantidad de acientos' class="form-control" name="modelo" id="">
+                  <input type="text" placeholder='Cantidad de acientos' class="form-control" name="modelo">
                 </div>
                 <div class="col-3">
                   <label for="exampleFormControlSelect2">Color</label>
-                  <select name="color" id="" class="form-control">
+                  <select name="color" class="form-control">
                       <option value="Blanco">Blanco</option>
                       <option value="Amarillo">Amarillo</option>
                       <option value="Rojo">Rojo</option>

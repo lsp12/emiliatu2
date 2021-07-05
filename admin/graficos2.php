@@ -1,4 +1,3 @@
-
 <?php
 ob_start();
   require_once('../modelo/admin.php');
@@ -51,9 +50,13 @@ ob_start();
             <div class="row justify-content-between">
                 <div class="col-2">
                   <div class="nav flex-column nav-pills bg-dark rounded-lg" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-home-tab"  href="admin-1.php" role="tab" aria-controls="v-pills-home" >Regresar a pagina principal</a>
-                    <a class="nav-link " id="v-pills-home-tab"  href="reportUser.php" role="tab" aria-controls="v-pills-home2" >Reporte de Empleados</a>
-                    <a class="nav-link " id="v-pills-home-tab"  href="reportBus.php" role="tab" aria-controls="v-pills-home2" >Reporte Buses</a>
+                  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false">Vista general</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Insertar nuevo conductor</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-2" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actualizar horario</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-3" role="tab" aria-controls="v-pills-profile" aria-selected="false">acreditacion de boleto</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-4" role="tab" aria-controls="v-pills-profile" aria-selected="false">Insertar bus</a>
+            <a class="nav-link" id="v-pills-profile-tab" href="ganacias.php" role="tab" aria-controls="v-pills-profile" aria-selected="false">Ver Reporte</a>
+            <a class="nav-link" id="v-pills-profile-tab" href="graficos2.php" role="tab" aria-controls="v-pills-profile" aria-selected="true">Mas Detalles</a>
                   </div>
                 </div>
                 <div class="col-10">

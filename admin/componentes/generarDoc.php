@@ -5,29 +5,29 @@
         <div class="form-group row mb-4">
         <div class="col-4">
           <label for="exampleFormControlSelect2">Cedula:</label>
-          <input type="text" placeholder='Numero de identificacion' id="intTextBox" class="form-control" name="cedula" id="intTextBox" maxlength="10" minlength="10" required>
+          <input type="text" placeholder='Numero de identificacion' id="intTextBox" class="form-control" name="cedula" maxlength="10" minlength="10" required>
           </div>
 
           <div class="col-4">
           <label for="exampleFormControlSelect2">Nombre:</label>
-          <input type="text" placeholder='Ingresa los nombres' class="form-control" name="nombre_emp" id="" required>
+          <input type="text" placeholder='Ingresa los nombres' class="form-control" name="nombre_emp"  required>
           </div>
         
         
           <div class="col-4">
           <label for="exampleFormControlSelect2">Apellido:</label>
-          <input type="text" placeholder='Ingresa los apelldios' class="form-control" name="apellido" id="" required>
+          <input type="text" placeholder='Ingresa los apelldios' class="form-control" name="apellido"  required>
           </div>
           </div>
 
           <div class="form-group row">
           <div class="col-4">
             <label for="exampleFormControlSelect2">edad:</label>
-            <input type="number" placeholder='Ingrese edad' class="form-control" name="edad" min="18" id="" required>
+            <input type="number" placeholder='Ingrese edad' class="form-control" name="edad" min="18" required>
           </div>
           <div class="col-4">
             <label for="exampleFormControlSelect2">sexo:</label>
-            <select name="sexo" id="" class="form-control" required>
+            <select name="sexo" class="form-control" required>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
@@ -90,32 +90,9 @@
         </tbody>
       </table>
   </div>
+  
+                
 </div>
                       
-<script>
-		function setInputFilter(textbox, inputFilter) {
-			["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
-				textbox.addEventListener(event, function() {
-					if (inputFilter(this.value)) {
-						this.oldValue = this.value;
-						this.oldSelectionStart = this.selectionStart;
-						this.oldSelectionEnd = this.selectionEnd;
-					} else if (this.hasOwnProperty("oldValue")) {
-						this.value = this.oldValue;
-						this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-					} else {
-						this.value = "";
-					}
-				});
-			});
-		}
 
-		setInputFilter(document.getElementById("intTextBox"), function(value) {
-			return /^-?\d*$/.test(value);
-		});
-		setInputFilter(document.getElementById("intTextBox2"), function(value) {
-			return /^-?\d*$/.test(value);
-		});
-	</script>
-                
                     

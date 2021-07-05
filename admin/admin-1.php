@@ -67,11 +67,14 @@ if ($id == null) {
           <div class="tab-content" id="v-pills-tabContent">
             <?php
             include_once("componentes/Seccion-tabla-y-buscador.php");
-            include_once("componentes/generarDoc.php");
-            include_once("componentes/AceptacionBoleto.php");
-            include_once("componentes/inserta-bus.php");
-            include_once("componentes/Section-de-actualiozar-horario.php");
             include_once("componentes/mas-detalles.php");
+            include_once("componentes/Section-de-actualiozar-horario.php");
+            include_once("componentes/AceptacionBoleto.php");
+            include_once("componentes/generarDoc.php");
+            include_once("componentes/inserta-bus.php");
+            
+            
+            
             ?>
           </div>
         </div>
@@ -83,6 +86,31 @@ if ($id == null) {
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
+    <script>
+		function setInputFilter(textbox, inputFilter) {
+			["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+				textbox.addEventListener(event, function() {
+					if (inputFilter(this.value)) {
+						this.oldValue = this.value;
+						this.oldSelectionStart = this.selectionStart;
+						this.oldSelectionEnd = this.selectionEnd;
+					} else if (this.hasOwnProperty("oldValue")) {
+						this.value = this.oldValue;
+						this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+					} else {
+						this.value = "";
+					}
+				});
+			});
+		}
+
+		setInputFilter(document.getElementById("intTextBox"), function(value) {
+			return /^-?\d*$/.test(value);
+		});
+		setInputFilter(document.getElementById("intTextBox2"), function(value) {
+			return /^-?\d*$/.test(value);
+		});
+	</script>
     <?php
     include_once("componentes/scrip-de-graficos.php");
     ob_end_flush();
